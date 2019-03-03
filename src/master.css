@@ -1,0 +1,72 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Space+Mono|Material+Icons');
+
+.condensed{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.mono{
+    font-family: 'Space Mono', monospace;
+}
+
+/* colors */
+.primary{
+    color: #448AFF;
+}
+.primary-text{
+    color: #448AFF;
+}
+
+.accent{
+    color: #82B1FF;
+}
+
+.primaryDark{
+    color: #2962ff;
+}
+
+.secondary-text{
+    color: #bdbdbd;
+}
+
+.black-text{
+    color: #616161;
+}
+
+.white-text{
+    color: #f5f5f5;
+}
+
+.error{
+    color: #ff8a80;
+}
+
+/* containers */
+body{
+    font-family: 'Roboto', sans-serif;
+    
+}
+.button-outline{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #448AFF;
+    color: #448AFF;
+    border-radius: 6px;
+    text-transform: none;
+    padding: 10px
+}
+
+.button-outline:hover{
+    color: #448AFF;
+    background-color: rgba(0,0,0,0.1) 
+}
+
+.error-button{
+    color: #ff8a80;
+    border-color: #ff8a80;
+}
+
+.error-button:hover{
+    color: #ff8a80;
+    background-color: rgba(255,0,0,0.1) 
+}

@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteCond %{HTTP:Accept-Language} ^en [NC]
+RewriteRule ^$ https://slateapp.es/es/ [L,R=301]
+
+RewriteCond %{HTTP:Accept-Language} ^es [NC]
+RewriteRule ^$ https://slateapp.es/es/ [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(en|es)/?$ $1 [QSA,NC,L]
