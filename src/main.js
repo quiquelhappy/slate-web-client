@@ -24,25 +24,31 @@ if (getParameterByName("token") != null) {
 
 function redeemToken(token) {
     $.ajax({
-        method: "POST",
-        url: "https://b.slateapp.es/login/token/exchange",
-        data: { token: token }
-    }).done(function (msg) {
-        var data = JSON.parse(msg)
-        if(data.exchanged){
-            console.log("-- TOKEN OK")
-            saveCredentials(data.user.uuid,data.user.hash)
-        } else {
-            console.log("-- TOKEN ERROR:")
-            console.log("Exchanged: " + data.exchanged)
-            console.log("Illegal: " + data.illegal)
-            alert("El inicio de sesión ha devuelto un valor inválido, vuelva a intentarlo, por favor.")
+        url: "https://b.slateapp.es/login/token/exchange?token=" + token, success: function (result) {
+            var data = JSON.parse(result)
+            console.log(data);
+            if (data.exchanged) {
+                console.log("-- TOKEN OK")
+                saveCredentials(data.user.uuid, data.user.hash)
+                onLogin()
+            } else {
+                console.log("-- TOKEN ERROR (" + token + "):")
+                console.log("Exchanged: " + data.exchanged)
+                console.log("Illegal: " + data.illegal)
+                alert("El inicio de sesión ha devuelto un valor inválido, vuelva a intentarlo, por favor.")
+            }
         }
     });
 }
 
-function saveCredentials(uuid,hash){
+if (localStorage.getItem("uuid") != null) {
+
+    onLogin()
+
+}
+
+function saveCredentials(uuid, hash) {
     console.log("-- SAVING CREDENTIALS")
-    localStorage.setItem("uuid",uuid);
-    localStorage.setItem("hash",hash);
+    localStorage.setItem("uuid", uuid);
+    localStorage.setItem("hash", hash);
 }
