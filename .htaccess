@@ -1,3 +1,5 @@
+Options -Indexes
+
 RewriteEngine On
 
 RewriteCond %{HTTP:Accept-Language} ^en [NC]
